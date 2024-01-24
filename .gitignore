@@ -1,0 +1,11 @@
+### BACK
+back/var/cache/
+back/var/log/
+back/var/sessions/
+back/vendor/
+
+back/*.local
+
+### FRONT
+front/.angular/
+front/node_modules/
