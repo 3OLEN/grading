@@ -58,7 +58,7 @@ L'application est découpée en une application Front et une application Back.
 
 * Interface de présentation et de manipulation des données par le biais de l'API.
   * Prend en charge les diverses règles métier. 
-* Angular 16.
+* Angular 17.
   * Node 20.
 * TypeScript.
 * SCSS.
