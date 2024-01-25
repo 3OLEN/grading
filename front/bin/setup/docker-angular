@@ -1,0 +1,15 @@
+#!/bin/bash
+
+readonly PROJECT_PATH="$(realpath "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/../..")"
+
+# Utils
+source "${PROJECT_PATH}/bin/_common.bash"
+
+# -------------------------------------------------------------------------------------------------------------------- #
+
+title "Building image \`${ANGULAR_DOCKER_IMAGE}\`..."
+
+docker build \
+    --file "${PROJECT_PATH}"/docker/node/Dockerfile \
+    --tag "${ANGULAR_DOCKER_IMAGE}" \
+    "${PROJECT_PATH}"

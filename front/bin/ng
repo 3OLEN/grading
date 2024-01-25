@@ -1,0 +1,36 @@
+#!/bin/bash
+
+readonly PROJECT_PATH="$(realpath "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/..")"
+
+# Utils
+source "${PROJECT_PATH}/bin/_common.bash"
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Checking if image exists
+check_angular_image
+
+# Checking if container is running
+readonly ANGULAR_NG_CONTAINER_NAME="dev--olen-grading-front-ng"
+if docker container inspect "${ANGULAR_NG_CONTAINER_NAME}" &> /dev/null; then
+  info "Docker container \`${ANGULAR_NG_CONTAINER_NAME}\` is already running; should stop it..."
+
+  docker stop "${ANGULAR_NG_CONTAINER_NAME}"
+fi
+
+# Parameters
+if [ $# -eq 0 ]; then
+  params="--help"
+else
+  params="${@}"
+fi
+
+# Running container
+title "Running command \`ng ${params}\`..."
+docker run \
+    --interactive \
+    --tty \
+    --rm \
+    --volume "${PROJECT_PATH}:/usr/project" \
+    --name "${ANGULAR_NG_CONTAINER_NAME}" \
+    "${ANGULAR_DOCKER_IMAGE}" \
+    ng "${params}"

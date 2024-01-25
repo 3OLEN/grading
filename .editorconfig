@@ -12,7 +12,7 @@ tab_width = 4
 [*.scss]
 indent_size = 2
 
-[{*.bash,*.sh}]
+[{*.bash,*.sh,**/bin/*}]
 indent_size = 2
 tab_width = 2
 

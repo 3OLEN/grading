@@ -1,0 +1,29 @@
+#!/bin/bash
+
+readonly PROJECT_PATH="$(realpath "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/..")"
+
+# Utils
+source "${PROJECT_PATH}/bin/_common.bash"
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Checking if image exists
+check_angular_image
+
+# Checking if container is running
+if docker container inspect "${ANGULAR_APP_CONTAINER_NAME}" &> /dev/null; then
+  warning "Docker container \`${ANGULAR_APP_CONTAINER_NAME}\` is already running."
+
+  exit 0
+fi
+
+# Running container
+title "Starting app from \`${ANGULAR_DOCKER_IMAGE}\` in container \`${ANGULAR_APP_CONTAINER_NAME}\`..."
+docker run \
+    --interactive \
+    --tty \
+    --detach \
+    --rm \
+    --publish 4200:4200 \
+    --volume "${PROJECT_PATH}:/usr/project" \
+    --name "${ANGULAR_APP_CONTAINER_NAME}" \
+    "${ANGULAR_DOCKER_IMAGE}"
