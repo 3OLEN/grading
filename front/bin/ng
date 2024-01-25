@@ -33,4 +33,4 @@ docker run \
     --volume "${PROJECT_PATH}:/usr/project" \
     --name "${ANGULAR_NG_CONTAINER_NAME}" \
     "${ANGULAR_DOCKER_IMAGE}" \
-    ng "${params}"
+    ng $params
