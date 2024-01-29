@@ -1,0 +1,23 @@
+/* region    # Borders */
+@mixin border($width: 1px, $color: $color-primary) {
+  border: $width solid $color;
+}
+
+@mixin border-top($width: 1px, $color: $color-primary) {
+  @include _single-border($position: top, $width: $width, $color: $color)
+}
+@mixin border-right($width: 1px, $color: $color-primary) {
+  @include _single-border($position: right, $width: $width, $color: $color)
+}
+@mixin border-bottom($width: 1px, $color: $color-primary) {
+  @include _single-border($position: bottom, $width: $width, $color: $color)
+}
+@mixin border-left($width: 1px, $color: $color-primary) {
+  @include _single-border($position: left, $width: $width, $color: $color)
+}
+
+// ## Internal mixins
+@mixin _single-border($position, $width: 1px, $color: $color-primary) {
+  border-#{$position}: $width solid $color;
+}
+/* endregion # Border */
