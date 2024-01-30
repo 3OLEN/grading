@@ -6,6 +6,7 @@ $color-primary: map-get($project-primary, 500);
 $color-secondary: map-get($project-accent, 500);
 
 $color-background: mat.get-color-from-palette(mat.$blue-grey-palette, 50);
+$color-background-dark: mat.get-color-from-palette(mat.$blue-grey-palette, 800);
 /* endregion # Colors */
 
 /* region    # Spacing */

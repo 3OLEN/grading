@@ -30,21 +30,40 @@
 }
 
 #useful-links {
+  display: flex;
+    flex-direction: column;
+    row-gap: .75em;
+    flex-grow: 1;
+
   > header {
     @include border-bottom;
     @include font-size-bigger;
+    align-self: center;
     padding-bottom: 0.25em;
     text-align: center;
     width: 10rem;
+  }
+  > main {
+    padding: 0 $spacing-base $spacing-base * .5;
+
+    nav {
+      a {
+        @include link_hover_pilled;
+      }
+    }
   }
 }
 
 #contributions {
   @include _side-content-styling;
+    row-gap: 0.75em;
   @include border-left;
   padding-left: 1em;
 
   > footer {
     @include font-size-smaller;
+    a {
+      @include link_dual_colors;
+    }
   }
 }

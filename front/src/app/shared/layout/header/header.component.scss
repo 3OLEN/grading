@@ -12,9 +12,17 @@
 
 #header-logo {
   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  > a {
+    @include link_dual_colors;
+    display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    > span {
+      display: block;
+    }
+  }
 }
 #header-title {
   @include font-size-bigger;
