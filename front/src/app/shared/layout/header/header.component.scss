@@ -1,0 +1,21 @@
+@import "styles";
+
+:host {
+  > header {
+    @include border-top($width: 5px);
+    @include border-bottom();
+    display: flex;
+      justify-content: space-between;
+    padding: $spacing-base * .5;
+  }
+}
+
+#header-logo {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#header-title {
+  @include font-size-bigger;
+}
