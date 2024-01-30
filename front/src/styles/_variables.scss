@@ -1,6 +1,13 @@
+@use '@angular/material' as mat;
+
 /* region    # Colors */
 // ## Material theme
 $color-primary: map-get($project-primary, 500);
 $color-secondary: map-get($project-accent, 500);
 
+$color-background: mat.get-color-from-palette(mat.$blue-grey-palette, 50);
 /* endregion # Colors */
+
+/* region    # Spacing */
+$spacing-base: 30px;
+/* endregion # Spacing */

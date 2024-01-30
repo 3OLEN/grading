@@ -1,4 +1,10 @@
-/* region    # Borders */
+/* region    # Background color */
+@mixin background-color() {
+  background-color: $color-background;
+}
+/* endregion # Background color */
+
+/* region    # Border */
 @mixin border($width: 1px, $color: $color-primary) {
   border: $width solid $color;
 }
@@ -21,3 +27,12 @@
   border-#{$position}: $width solid $color;
 }
 /* endregion # Border */
+
+/* region    # Font size */
+@mixin font-size-bigger() {
+  font-size: 1.15em;
+}
+@mixin font-size-smaller() {
+  font-size: 0.85em;
+}
+/* endregion # Font size */
