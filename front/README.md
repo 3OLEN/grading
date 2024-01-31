@@ -12,6 +12,7 @@ L'application est montée sur un environnement Docker selon les règles établie
   - 📦️ `dev--olen-grading-front-npm` : Container *standalone* pour exécuter les commandes `npm`.
 * 🐋 `olenbvillena/front-ci:1.0.0` : Image pour l'environnement de CI, basée sur node@20.11.
   - 📦️ `ci--olen-grading-front-audit` : Container *standalone* pour exécuter `npm audit`.
+  - 📦️ `ci--olen-grading-front-eslint` : Container *standalone* pour exécuter l'outil `eslint`.
 
 ### 📋️ Instructions
 
@@ -39,3 +40,7 @@ spécifique à un contexte de "CI".
 Plusieurs scripts sont à disposition :
 
 * `bin/ci/audit` : Exécute la commande `npm audit`.
+* `bin/ci/eslint` : Exécute la commande `npx eslint` ; par défaut exécutera `npx eslint --cache ./`.
+  - `--no-cache`: Empêche `eslint` d'utiliser le cache pour sa prochaine analyse.
+  - `--fix`: Exécute les instructions de "fix".
+  - Des fichiers / *patterns* peuvent être fournis pour surcharger le *pattern* global de base.

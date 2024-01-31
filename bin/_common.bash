@@ -17,3 +17,13 @@ warning() {
   echo -e "\033[33m$1\033[0m"
 }
 
+trim() {
+    local string="$*"
+    # Drop beginning spaces
+    string="${string#"${string%%[![:space:]]*}"}"
+    # Drop ending spaces
+    string="${string%"${string##*[![:space:]]}"}"
+
+    echo -n "${string}"
+}
+
