@@ -1,3 +1,4 @@
+/* eslint-disable canonical/sort-keys --- This sort has a specific reason */
 module.exports = {
     overrides: [
         {
@@ -24,6 +25,6 @@ module.exports = {
             files: ['*.json'],
             excludedFiles: ['package-lock.json'],
             plugins: ['json-format'],
-        }
+        },
     ],
 }
