@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -eu
+
+readonly PROJECT_PATH="$(realpath "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/../..")"
+
+# Utils
+source "${PROJECT_PATH}/bin/_common.bash"
+
+# -------------------------------------------------------------------------------------------------------------------- #
+
+title "Building image \`${FRONT_CI_DOCKER_IMAGE}\`..."
+
+docker build \
+    --file "${PROJECT_PATH}"/docker/ci/Dockerfile \
+    --tag "${FRONT_CI_DOCKER_IMAGE}" \
+    "${PROJECT_PATH}"

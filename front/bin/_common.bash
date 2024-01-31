@@ -17,6 +17,7 @@ fi
 # ------------------------------------------------------- Vars ------------------------------------------------------- #
 # Docker
 readonly ANGULAR_DOCKER_IMAGE="olenbvillena/angular-17:1.0.0"
+readonly FRONT_CI_DOCKER_IMAGE="olenbvillena/front-ci:1.0.0"
 
 readonly ANGULAR_APP_CONTAINER_NAME="olen-grading-front-app"
 
@@ -34,6 +35,13 @@ check_angular_image() {
     info "Docker image \`${ANGULAR_DOCKER_IMAGE}\` does not exist; should build it..."
 
     source "${PROJECT_BIN_SETUP_PATH}/docker-angular"
+  fi
+}
+check_ci_image() {
+  if ! docker image inspect "${FRONT_CI_DOCKER_IMAGE}" &> /dev/null; then
+    info "Docker image \`${FRONT_CI_DOCKER_IMAGE}\` does not exist; should build it..."
+
+    source "${PROJECT_BIN_SETUP_PATH}/docker-ci"
   fi
 }
 
