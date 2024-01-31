@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 readonly PROJECT_PATH="$(realpath "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/..")"
 
 # Utils
@@ -11,11 +13,7 @@ check_angular_image
 
 # Checking if container is running
 readonly ANGULAR_NPM_CONTAINER_NAME="dev--olen-grading-front-npm"
-if docker container inspect "${ANGULAR_NPM_CONTAINER_NAME}" &> /dev/null; then
-  info "Docker container \`${ANGULAR_NPM_CONTAINER_NAME}\` is already running; should stop it..."
-
-  docker stop "${ANGULAR_NPM_CONTAINER_NAME}"
-fi
+stop_running_container "${ANGULAR_NPM_CONTAINER_NAME}"
 
 # Parameters
 if [ $# -eq 0 ]; then
@@ -33,4 +31,4 @@ docker run \
     --volume "${PROJECT_PATH}:/usr/project" \
     --name "${ANGULAR_NPM_CONTAINER_NAME}" \
     "${ANGULAR_DOCKER_IMAGE}" \
-    npm "${params}"
+    npm $params

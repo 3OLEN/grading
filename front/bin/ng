@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 readonly PROJECT_PATH="$(realpath "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/..")"
 
 # Utils
@@ -11,11 +13,7 @@ check_angular_image
 
 # Checking if container is running
 readonly ANGULAR_NG_CONTAINER_NAME="dev--olen-grading-front-ng"
-if docker container inspect "${ANGULAR_NG_CONTAINER_NAME}" &> /dev/null; then
-  info "Docker container \`${ANGULAR_NG_CONTAINER_NAME}\` is already running; should stop it..."
-
-  docker stop "${ANGULAR_NG_CONTAINER_NAME}"
-fi
+stop_running_container "${ANGULAR_NG_CONTAINER_NAME}"
 
 # Parameters
 if [ $# -eq 0 ]; then

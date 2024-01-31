@@ -37,6 +37,27 @@ check_angular_image() {
   fi
 }
 
+stop_running_container() {
+  if [ $# -eq 0 ]; then
+    error "\`stop_running_container\` function requires \`container_name\` parameter."
+    exit 1
+  fi
+  readonly local CONTAINER_NAME="${1}"
+  readonly local STOP_CONTAINER="${2:-true}"
+
+  if ! docker container inspect "${CONTAINER_NAME}" &> /dev/null; then
+    return
+  fi
+
+  if [ "${STOP_CONTAINER}" = false ]; then
+    error "Docker container \`${CONTAINER_NAME}\` is already running..."
+    exit 1
+  fi
+
+  info "Docker container \`${CONTAINER_NAME}\` is already running; should stop it..."
+  docker stop "${CONTAINER_NAME}"
+}
+
 
 # ---------------------------------------------------- Execution ----------------------------------------------------- #
 source "${ROOT_BIN_PATH}/_common.bash"

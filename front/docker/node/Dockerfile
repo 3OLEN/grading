@@ -8,7 +8,9 @@ RUN apk update \
         bash
 
 # Install angular cli
-RUN npm install -g @angular/cli@17
+RUN npm install -g  \
+    npm@10.4.0 \
+    @angular/cli@17
 
 WORKDIR /usr/project
 
