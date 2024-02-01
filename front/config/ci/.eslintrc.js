@@ -9,6 +9,7 @@ module.exports = {
                 'canonical/auto',
                 'canonical/typescript',
                 'plugin:sonarjs/recommended',
+                'plugin:@angular-eslint/recommended',
             ],
             rules: {
                 '@typescript-eslint/indent': ['error', 4],

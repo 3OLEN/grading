@@ -31,6 +31,7 @@ RUN npm install --save-dev \
     eslint-config-canonical \
     eslint-plugin-json-format \
     eslint-plugin-sonarjs \
+    @angular-eslint/eslint-plugin \
     @html-eslint/parser \
     @html-eslint/eslint-plugin
 ## dprint
