@@ -12,6 +12,7 @@ module.exports = {
             rules: {
                 '@typescript-eslint/indent': ['error', 4],
                 '@typescript-eslint/semi': 'off',
+                'simple-import-sort/imports': 'off',
                 'prettier/prettier': 'off',
             },
         },

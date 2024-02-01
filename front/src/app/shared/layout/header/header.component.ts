@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { MatIconButton } from '@angular/material/button';
-import { MatIcon } from '@angular/material/icon';
+import { Component } from '@angular/core'
+import { MatIconButton } from '@angular/material/button'
+import { MatIcon } from '@angular/material/icon'
 
 @Component({
     imports: [
@@ -13,5 +13,5 @@ import { MatIcon } from '@angular/material/icon';
     templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-    public readonly appTitle = 'OLEN Grading';
+    public readonly appTitle = 'OLEN Grading'
 }

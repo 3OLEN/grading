@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { faBrandGithub } from '@ng-icons/font-awesome/brands';
+import { Component } from '@angular/core'
+import { NgIconComponent, provideIcons } from '@ng-icons/core'
+import { faBrandGithub } from '@ng-icons/font-awesome/brands'
 
 @Component({
     imports: [

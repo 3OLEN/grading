@@ -1,7 +1,7 @@
-import { FooterComponent } from './shared/layout/footer/footer.component';
-import { HeaderComponent } from './shared/layout/header/header.component';
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core'
+import { RouterOutlet } from '@angular/router'
+import { FooterComponent } from './shared/layout/footer/footer.component'
+import { HeaderComponent } from './shared/layout/header/header.component'
 
 @Component({
     imports: [RouterOutlet, FooterComponent, HeaderComponent],
@@ -11,5 +11,5 @@ import { RouterOutlet } from '@angular/router';
     templateUrl: './app.component.html',
 })
 export class AppComponent {
-    public readonly title = 'OLEN Grading';
+    public readonly title = 'OLEN Grading'
 }
