@@ -3,7 +3,7 @@
 :host {
   > header {
     @include border-top($width: 5px);
-    @include border-bottom();
+    @include border-bottom;
     display: flex;
       justify-content: space-between;
     padding: $spacing-base * .5;
@@ -12,6 +12,7 @@
 
 #header-logo {
   display: flex;
+
   > a {
     @include link_dual_colors;
     display: flex;
@@ -24,6 +25,7 @@
     }
   }
 }
+
 #header-title {
   @include font-size-bigger;
 }
