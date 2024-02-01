@@ -25,16 +25,20 @@ COPY --chown=ci:ci ./package.json ./package-lock.json ./
 RUN npm ci
 
 # Install ci tools
+## eslint
 RUN npm install --save-dev \
-    # eslint
     eslint@8.56 \
     eslint-config-canonical \
     eslint-plugin-json-format \
     eslint-plugin-sonarjs \
     @html-eslint/parser \
-    @html-eslint/eslint-plugin \
-    \
-    # dprint
+    @html-eslint/eslint-plugin
+## dprint
+RUN npm install --save-dev \
     dprint
+## stylelint
+RUN npm install --save-dev \
+    stylelint@16.2 \
+    stylelint-config-standard-scss
 
 ENV DPRINT_CACHE_DIR=/usr/project/var/ci/cache/dprint/

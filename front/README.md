@@ -14,6 +14,7 @@ L'application est montée sur un environnement Docker selon les règles établie
   - 📦️ `ci--olen-grading-front-audit` : Container *standalone* pour exécuter `npm audit`.
   - 📦️ `ci--olen-grading-front-dprint` : Container *standalone* pour exécuter l'outil `dprint`.
   - 📦️ `ci--olen-grading-front-eslint` : Container *standalone* pour exécuter l'outil `eslint`.
+  - 📦️ `ci--olen-grading-front-stylelint` : Container *standalone* pour exécuter l'outil `stylelint`.
 
 ### 📋️ Instructions
 
@@ -48,6 +49,11 @@ Plusieurs scripts sont à disposition :
   - Des fichiers / *patterns* peuvent être fournis pour surcharger le *pattern* global de base.
 * `bin/ci/eslint` : Exécute la commande `npx eslint` ; par défaut exécutera `npx eslint --cache ./`.
   - `--no-cache`: Empêche `eslint` d'utiliser le cache pour sa prochaine analyse.
+  - `--fix`: Exécute les instructions de "fix".
+  - `--debug` : Affiche les messages de *debug*.
+  - Des fichiers / *patterns* peuvent être fournis pour surcharger le *pattern* global de base.
+* `bin/ci/stylelint` : Exécute la commande `npx stylelint` ; par défaut exécutera `npx stylelint --cache "**/*.scss"`.
+  - `--no-cache`: Empêche `stylelint` d'utiliser le cache pour sa prochaine analyse.
   - `--fix`: Exécute les instructions de "fix".
   - `--debug` : Affiche les messages de *debug*.
   - Des fichiers / *patterns* peuvent être fournis pour surcharger le *pattern* global de base.
