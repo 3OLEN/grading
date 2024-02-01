@@ -14,46 +14,40 @@ check_ci_image
 # Script parameters
 container_force_stop=false
 
-eslint_option_cache="--cache"
-eslint_option_fix=
-eslint_option_debug=
-eslint_files=
+dprint_action="check"
+dprint_option_no_cache=
+dprint_option_debug=
+dprint_files=
 # loop over parameters
 for param in "${@}"; do
     # If option "--force-stop" is in parameters
     if [[ "${param}" == "--force-stop" ]]; then
         container_force_stop=true
     elif [[ "${param}" == "--no-cache" ]]; then
-        eslint_option_cache=
+        dprint_option_no_cache="--incremental false"
     elif [[ "${param}" == "--fix" ]]; then
-        eslint_option_fix="--fix"
+        dprint_action="fmt"
     elif [[ "${param}" == "--debug" ]]; then
-        eslint_option_debug="--debug"
+        dprint_option_debug="--log-level debug"
     elif ! [[ "${param:0:2}" == "--" ]]; then
-        eslint_files="${eslint_files} ${param}"
+        dprint_files="${dprint_files} ${param}"
     fi
 done
 
-# Default check path
-if [[ -z "${eslint_files}" ]]; then
-    eslint_files="./"
-fi
-
-eslint_args="$(trim "${eslint_option_cache} $(trim "${eslint_option_fix} $(trim "${eslint_option_debug} ${eslint_files}")")")"
+dprint_args="$(trim "${dprint_option_no_cache} $(trim "${dprint_action} $(trim "${dprint_option_debug} ${dprint_files}")")")"
 
 # Checking if container is running
-readonly CI_ESLINT_CONTAINER_NAME="ci--olen-grading-front-eslint"
-stop_running_container "${CI_ESLINT_CONTAINER_NAME}" force_stop
+readonly CI_DPRINT_CONTAINER_NAME="ci--olen-grading-front-dprint"
+stop_running_container "${CI_DPRINT_CONTAINER_NAME}" force_stop
 
 # Running container
-title "Running CI tool \`eslint ${eslint_args}\`..."
+title "Running CI tool \`dprint ${dprint_args}\`..."
 docker run \
     --interactive \
     --tty \
     --rm \
-    --volume "${PROJECT_PATH}/package.json:/usr/project/package.json" \
     --volume "${PROJECT_PATH}/config:/usr/project/config" \
     --volume "${PROJECT_PATH}/src:/usr/project/src" \
-    --name "${CI_ESLINT_CONTAINER_NAME}" \
+    --name "${CI_DPRINT_CONTAINER_NAME}" \
     "${FRONT_CI_DOCKER_IMAGE}" \
-    npx eslint --config config/ci/.eslintrc.js $eslint_args
+    npx dprint --config config/ci/.dprint.json $dprint_args

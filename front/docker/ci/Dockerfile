@@ -27,12 +27,12 @@ RUN npm ci
 # Install ci tools
 RUN npm install --save-dev \
     # eslint
-    eslint \
+    eslint@8.56 \
     eslint-config-canonical \
     eslint-plugin-json-format \
     eslint-plugin-sonarjs \
     @html-eslint/parser \
     @html-eslint/eslint-plugin \
     \
-    # prettier
-    prettier
+    # dprint
+    dprint
