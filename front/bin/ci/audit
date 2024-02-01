@@ -23,13 +23,14 @@ stop_running_container "${CI_AUDIT_CONTAINER_NAME}" force_stop
 # Running container
 audit_args=
 if [[ "${@}" =~ "fix" ]]; then
-    audit_args=" fix --dry-run"
+    audit_args="fix"
 fi
-title "Running CI tool \`npm audit${audit_args}\`..."
+title "Running CI tool \`$(trim "npm audit ${audit_args}")\`..."
 docker run \
     --interactive \
     --tty \
     --rm \
+    --volume "${PROJECT_PATH}:/usr/project" \
     --name "${CI_AUDIT_CONTAINER_NAME}" \
-    "${FRONT_CI_DOCKER_IMAGE}" \
+    "${ANGULAR_DOCKER_IMAGE}" \
     npm audit $audit_args

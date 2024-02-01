@@ -46,7 +46,7 @@ readonly CI_STYLELINT_CONTAINER_NAME="ci--olen-grading-front-stylelint"
 stop_running_container "${CI_STYLELINT_CONTAINER_NAME}" force_stop
 
 # Running container
-title "Running CI tool \`stylelint ${stylelint_args} "${stylelint_files[@]}"\`..."
+title "Running CI tool \`stylelint ${stylelint_args} "${stylelint_files[*]}"\`..."
 docker run \
     --interactive \
     --tty \

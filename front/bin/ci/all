@@ -1,0 +1,39 @@
+#!/bin/bash
+
+set -eu
+
+readonly PROJECT_PATH="$(realpath "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/../..")"
+
+# Utils
+source "${PROJECT_PATH}/bin/_common.bash"
+
+# -------------------------------------------------------------------------------------------------------------------- #
+# Script parameters
+tool_option_fix=
+tool_option_debug=
+tool_option_no_cache=
+# loop over parameters
+for param in "${@}"; do
+    if [[ "${param}" == "--fix" ]]; then
+        tool_option_fix="--fix"
+    elif [[ "${param}" == "--debug" ]]; then
+        tool_option_debug="--debug"
+    elif [[ "${param}" == "--no-cache" ]]; then
+        tool_option_no_cache="--no-cache"
+    fi
+done
+
+tool_args="$(trim "${tool_option_fix}$(trim "${tool_option_no_cache} ${tool_option_debug}")")"
+
+# Running CI tools
+title "Running tools with args \`${tool_args}\`"
+ci_tools=(
+    dprint
+    eslint
+    stylelint
+    audit
+)
+
+for ci_tool in ${ci_tools[@]}; do
+    "${PROJECT_BIN_CI_PATH}/${ci_tool}" "${tool_args}"
+done

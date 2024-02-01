@@ -23,6 +23,7 @@ readonly ANGULAR_APP_CONTAINER_NAME="olen-grading-front-app"
 
 # Project
 readonly PROJECT_BIN_PATH="$(realpath "${PROJECT_PATH}"/bin)"
+readonly PROJECT_BIN_CI_PATH="$(realpath "${PROJECT_BIN_PATH}"/ci)"
 readonly PROJECT_BIN_SETUP_PATH="$(realpath "${PROJECT_BIN_PATH}"/setup)"
 
 readonly ROOT_PATH="$(realpath "${PROJECT_PATH}"/..)"

@@ -41,7 +41,12 @@ spécifique à un contexte de "CI".
 
 Plusieurs scripts sont à disposition :
 
+* `bin/ci/all` : Exécute tous les scripts de CI dans un ordre "préférentiel".
+  - `--no-cache` : Fournit l'option `--no-cache` aux outils pour empêcher l'utilisation du cache.
+  - `--fix` : Fournit l'option `--fix` aux outils pour exécuter les modifications automatiques.
+  - `--debug` : Fournit l'option `--debug` aux outils pour afficher les messages de *debug*.
 * `bin/ci/audit` : Exécute la commande `npm audit`.
+  - `--fix` : Exécute les instructions de "fix".
 * `bin/ci/dprint` : Exécute la commande `npx dprint` ; par défaut exécutera `npx dprint ./`.
   - `--no-cache`: Empêche `dprint` d'utiliser le cache pour sa prochaine analyse.
   - `--fix` : Exécute les instructions de "fix".
