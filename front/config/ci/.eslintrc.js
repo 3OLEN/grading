@@ -1,5 +1,6 @@
 /* eslint-disable canonical/sort-keys --- This sort has a specific reason */
 module.exports = {
+    ignorePatterns: ['var/'],
     overrides: [
         {
             files: ['*.js', '*.ts'],

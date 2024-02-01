@@ -36,3 +36,5 @@ RUN npm install --save-dev \
     \
     # dprint
     dprint
+
+ENV DPRINT_CACHE_DIR=/usr/project/var/ci/cache/dprint/

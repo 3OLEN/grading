@@ -48,6 +48,7 @@ docker run \
     --rm \
     --volume "${PROJECT_PATH}/config:/usr/project/config" \
     --volume "${PROJECT_PATH}/src:/usr/project/src" \
+    --volume "${PROJECT_PATH}/var/ci/cache/dprint:/usr/project/var/ci/cache/dprint" \
     --name "${CI_DPRINT_CONTAINER_NAME}" \
     "${FRONT_CI_DOCKER_IMAGE}" \
     npx dprint --config config/ci/.dprint.json $dprint_args

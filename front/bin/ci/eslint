@@ -54,6 +54,7 @@ docker run \
     --volume "${PROJECT_PATH}/package.json:/usr/project/package.json" \
     --volume "${PROJECT_PATH}/config:/usr/project/config" \
     --volume "${PROJECT_PATH}/src:/usr/project/src" \
+    --volume "${PROJECT_PATH}/var/ci/cache/eslint:/usr/project/var/ci/cache/eslint" \
     --name "${CI_ESLINT_CONTAINER_NAME}" \
     "${FRONT_CI_DOCKER_IMAGE}" \
-    npx eslint --config config/ci/.eslintrc.js $eslint_args
+    npx eslint --config config/ci/.eslintrc.js --cache-location var/ci/cache/eslint $eslint_args

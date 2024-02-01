@@ -8,7 +8,8 @@
   },
   "excludes": [
     "**/node_modules",
-    "**/*-lock.json"
+    "**/*-lock.json",
+    "var/"
   ],
   "plugins": [
     "https://plugins.dprint.dev/typescript-0.88.10.wasm",

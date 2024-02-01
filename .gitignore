@@ -9,3 +9,5 @@ back/*.local
 ### FRONT
 front/.angular/
 front/node_modules/
+front/var/
+!front/var/**/.gitkeep
