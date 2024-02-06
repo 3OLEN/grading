@@ -39,6 +39,8 @@ $project-theme: mat.define-light-theme((
 @import "styles/placeholders";
 @import "styles/variables";
 
+@import "styles/common/card";
+
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   margin: 0;

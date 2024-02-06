@@ -1,0 +1,17 @@
+mat-card {
+  &.card-danger {
+    @include border($color: $color-danger);
+    background-color: $color-danger-bg;
+    color: $color-danger-dark;
+  }
+
+  &.card-full {
+    margin: auto;
+    width: 50vw;
+
+    mat-card-header,
+    mat-card-actions {
+      justify-content: center;
+    }
+  }
+}

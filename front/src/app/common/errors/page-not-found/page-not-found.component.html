@@ -1,0 +1,13 @@
+<mat-card class="card-danger card-full">
+    <mat-card-header>Erreur 404 - Page introuvable</mat-card-header>
+
+    <mat-card-content>
+        <p>La page demandée n'existe pas.</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <a [routerLink]="['/']" mat-raised-button color="warn" title="Retourner à la page d'accueil.">
+            Retour à l'accueil
+        </a>
+    </mat-card-actions>
+</mat-card>

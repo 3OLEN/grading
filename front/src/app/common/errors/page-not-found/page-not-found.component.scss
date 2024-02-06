@@ -1,0 +1,9 @@
+@import "styles";
+
+:host {
+  mat-card {
+    mat-card-header {
+      @extend %font-size-heading;
+    }
+  }
+}
