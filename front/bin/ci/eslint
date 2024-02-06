@@ -30,7 +30,7 @@ for param in "${@}"; do
     elif [[ "${param}" == "--debug" ]]; then
         eslint_option_debug="--debug"
     elif ! [[ "${param:0:2}" == "--" ]]; then
-        eslint_files="${eslint_files} ${param}"
+        eslint_files="$(trim "${eslint_files}" "${param}")"
     fi
 done
 
