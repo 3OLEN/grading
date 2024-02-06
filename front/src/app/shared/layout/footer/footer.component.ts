@@ -1,10 +1,12 @@
 import { Component } from '@angular/core'
+import { RouterLink } from '@angular/router'
 import { NgIconComponent, provideIcons } from '@ng-icons/core'
 import { faBrandGithub } from '@ng-icons/font-awesome/brands'
 
 @Component({
     imports: [
         NgIconComponent,
+        RouterLink,
     ],
     providers: [
         provideIcons({ faBrandGithub }),
