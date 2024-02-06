@@ -1,0 +1,47 @@
+@import "variables";
+// region    ----- Single style rules -----
+
+// region    # Background color
+%background-color {
+  background-color: $color-background;
+}
+// endregion # Background color
+
+// region    # Font size
+%font-size-bigger {
+  font-size: 1.15em;
+}
+%font-size-smaller {
+  font-size: 0.85em;
+}
+// endregion # Font size
+
+// endregion ----- Single style rules -----
+
+
+// region    ----- Grouped style rules -----
+
+// region    # links
+%link-dual-colors {
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-secondary;
+  }
+}
+
+%link-hover-pilled {
+  border-radius: 10px;
+  color: $color-background-dark;
+  padding: .5em .75em;
+  text-decoration: none;
+
+  &:hover {
+    @extend %background-color;
+    color: unset;
+  }
+}
+// endregion # links
+
+// endregion ----- Grouped style rules -----

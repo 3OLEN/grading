@@ -36,6 +36,7 @@ $project-theme: mat.define-light-theme((
 /* You can add global styles to this file, and also import other style files */
 /* stylelint-disable no-invalid-position-at-import-rule -- Should be imported at this position */
 @import "styles/mixins";
+@import "styles/placeholders";
 @import "styles/variables";
 
 body {

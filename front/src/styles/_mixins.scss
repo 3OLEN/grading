@@ -1,11 +1,5 @@
 // region    ----- Single style rules -----
 
-// region    # Background color
-@mixin background-color() {
-  background-color: $color-background;
-}
-// endregion # Background color
-
 // region    # Border
 @mixin border($width: 1px, $color: $color-primary) {
   border: $width solid $color;
@@ -30,41 +24,4 @@
 }
 // endregion # Border
 
-// region    # Font size
-@mixin font-size-bigger() {
-  font-size: 1.15em;
-}
-@mixin font-size-smaller() {
-  font-size: 0.85em;
-}
-// endregion # Font size
-
 // endregion ----- Single style rules -----
-
-
-// region    ----- Grouped style rules -----
-
-// region    # links
-@mixin link_dual_colors() {
-  color: $color-primary;
-  text-decoration: none;
-
-  &:hover {
-    color: $color-secondary;
-  }
-}
-
-@mixin link_hover_pilled() {
-  border-radius: 10px;
-  color: $color-background-dark;
-  padding: .5em .75em;
-  text-decoration: none;
-
-  &:hover {
-    @include background-color;
-    color: unset;
-  }
-}
-// endregion # links
-
-// endregion ----- Grouped style rules -----

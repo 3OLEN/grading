@@ -3,7 +3,7 @@
 :host {
   header {
     @include border-bottom;
-    @include font-size-bigger;
+    @extend %font-size-bigger;
     padding-right: 3em;
     padding-bottom: .5em;
     width: fit-content;

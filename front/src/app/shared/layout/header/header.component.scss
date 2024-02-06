@@ -14,7 +14,7 @@
   display: flex;
 
   > a {
-    @include link_dual_colors;
+    @extend %link-dual-colors;
     display: flex;
       flex-direction: column;
       justify-content: center;
@@ -27,5 +27,5 @@
 }
 
 #header-title {
-  @include font-size-bigger;
+  @extend %font-size-bigger;
 }
