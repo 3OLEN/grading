@@ -13,6 +13,7 @@ check_ci_image
 
 # Script parameters
 container_force_stop=false
+docker_input_is_tty="--interactive --tty"
 
 eslint_option_cache="--cache"
 eslint_option_fix=
@@ -20,9 +21,10 @@ eslint_option_debug=
 eslint_files=
 # loop over parameters
 for param in "${@}"; do
-    # If option "--force-stop" is in parameters
     if [[ "${param}" == "--force-stop" ]]; then
         container_force_stop=true
+    elif [[ "${param}" == "--not-a-tty" ]]; then
+        docker_input_is_tty=
     elif [[ "${param}" == "--no-cache" ]]; then
         eslint_option_cache=
     elif [[ "${param}" == "--fix" ]]; then
@@ -48,8 +50,7 @@ stop_running_container "${CI_ESLINT_CONTAINER_NAME}" force_stop
 # Running container
 title "Running CI tool \`eslint ${eslint_args}\`..."
 docker run \
-    --interactive \
-    --tty \
+    $docker_input_is_tty \
     --rm \
     --volume "${PROJECT_PATH}/package.json:/usr/project/package.json" \
     --volume "${PROJECT_PATH}/config:/usr/project/config" \
