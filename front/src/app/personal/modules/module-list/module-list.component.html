@@ -1,0 +1,21 @@
+<templates-main-page-heading [title]="'Mes modules'"></templates-main-page-heading>
+
+<section>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-icon>filter_alt</mat-icon>
+                Filtres
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+</section>
+
+<section id="module-list">
+    <ng-template ngFor let-module [ngForOf]="modules" [ngForTrackBy]="ngForModuleTrackBy">
+        <article>
+            <app-personal-modules-list-card [module]="module">
+            </app-personal-modules-list-card>
+        </article>
+    </ng-template>
+</section>

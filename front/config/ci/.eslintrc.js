@@ -13,12 +13,15 @@ module.exports = {
             ],
             rules: {
                 '@typescript-eslint/indent': ['error', 4],
+                '@typescript-eslint/member-delimiter-style': 'off',
                 '@typescript-eslint/no-extraneous-class': 'off',
                 '@typescript-eslint/semi': 'off',
                 '@typescript-eslint/space-before-function-paren': 'off',
                 'canonical/id-match': 'off',
                 'simple-import-sort/imports': 'off',
                 'prettier/prettier': 'off',
+                'typescript-sort-keys/interface': 'off',
+                'unicorn/numeric-separators-style': 'off',
             },
         },
         {
