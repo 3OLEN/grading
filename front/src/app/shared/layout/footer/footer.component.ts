@@ -3,6 +3,7 @@ import { MatTooltip } from '@angular/material/tooltip'
 import { RouterLink } from '@angular/router'
 import { NgIconComponent, provideIcons } from '@ng-icons/core'
 import { faBrandGithub } from '@ng-icons/font-awesome/brands'
+import { GlobalRouteEnum } from '../../enum/router/GlobalRouteEnum'
 
 @Component({
     imports: [
@@ -20,4 +21,6 @@ import { faBrandGithub } from '@ng-icons/font-awesome/brands'
 })
 export class FooterComponent {
     public readonly currentYear: number = new Date().getFullYear()
+
+    protected readonly GlobalRouteEnum = GlobalRouteEnum
 }

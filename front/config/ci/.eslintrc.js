@@ -12,6 +12,7 @@ module.exports = {
                 'plugin:@angular-eslint/recommended',
             ],
             rules: {
+                '@typescript-eslint/comma-dangle': 'off',
                 '@typescript-eslint/indent': ['error', 4],
                 '@typescript-eslint/member-delimiter-style': 'off',
                 '@typescript-eslint/no-extraneous-class': 'off',

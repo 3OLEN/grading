@@ -3,6 +3,7 @@ import { MatIconButton } from '@angular/material/button'
 import { MatIcon } from '@angular/material/icon'
 import { MatTooltip } from '@angular/material/tooltip'
 import { RouterLink } from '@angular/router'
+import { GlobalRouteEnum } from '../../enum/router/GlobalRouteEnum'
 
 @Component({
     imports: [
@@ -18,4 +19,6 @@ import { RouterLink } from '@angular/router'
 })
 export class HeaderComponent {
     public readonly appTitle = 'OLEN Grading'
+
+    protected readonly GlobalRouteEnum = GlobalRouteEnum
 }

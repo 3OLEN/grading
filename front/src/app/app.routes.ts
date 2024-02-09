@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component'
 import {
     ModuleListComponent as PersonalModuleListComponent,
 } from './personal/modules/module-list/module-list.component'
+import { PersonalRouteEnum } from './shared/enum/router/PersonalRouteEnum'
 
 export const routes: Routes = [
     {
@@ -13,7 +14,7 @@ export const routes: Routes = [
     },
     {
         component: PersonalModuleListComponent,
-        path: 'mon-espace/modules',
+        path: PersonalRouteEnum.ModuleList,
         title: 'Mes modules',
     },
     {
