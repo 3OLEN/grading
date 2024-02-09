@@ -1,0 +1,34 @@
+<mat-card>
+    <mat-card-header>
+        <div class="module-header">
+            <span class="module-name">{{ module.name }}</span>
+            <span class="module-promotion">{{ module.promotion }}</span>
+        </div>
+    </mat-card-header>
+    <div class="sub-header" *ngIf="module.nextSession">
+        Prochaine session le : {{ module.nextSession.label }}.
+    </div>
+
+    <mat-card-content>
+        <div>
+            <strong>Évaluations</strong>
+            <ng-template [ngIf]="module.assessments.length > 0" [ngIfElse]="elseNoAssessments">
+
+            </ng-template>
+            <ng-template #elseNoAssessments>
+                <div class="no-elements">Aucune évaluation programmée pour le module.</div>
+            </ng-template>
+        </div>
+
+        <div>
+            <strong>Séances</strong>
+            <ng-template [ngIf]="module.sessions.length > 0" [ngIfElse]="elseNoSessions">
+                <ng-template ngFor let-session [ngForOf]="module.sessions">
+                </ng-template>
+            </ng-template>
+            <ng-template #elseNoSessions>
+                <div class="no-elements">Aucune séance programmée pour le module.</div>
+            </ng-template>
+        </div>
+    </mat-card-content>
+</mat-card>

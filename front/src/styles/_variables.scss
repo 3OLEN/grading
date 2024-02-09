@@ -10,6 +10,10 @@ $color-danger: #dc3545;
 $color-danger-bg: #f8d7da;
 $color-danger-dark: #58151c;
 
+$color-grey: #ced4da;
+$color-grey-dark: #212529;
+$color-grey-light: #f8f9fa;
+
 $color-background: mat.get-color-from-palette(mat.$blue-grey-palette, 50);
 $color-background-dark: mat.get-color-from-palette(mat.$blue-grey-palette, 800);
 /* endregion # Colors */

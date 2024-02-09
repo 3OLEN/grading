@@ -1,0 +1,34 @@
+// region    -- Private placeholders
+%-alert {
+  --alert-background-color: $color-grey-light;
+  --alert-border-color: $color-grey-light;
+  --alert-color: $color-grey-dark;
+
+  @include border($color: var(--alert-border-color));
+  @extend %border-radius-small;
+  background-color: var(--alert-background-color);
+  color: var(--alert-color);
+  margin: $spacing-base * .25 0;
+  padding: $spacing-base * .5;
+}
+%-alert-fade {
+  --alert-background-color: #E2E3E5;
+  --alert-border-color: #C4C8CB;
+  --alert-color: #2B2F32;
+}
+// endregion -- Private placeholders
+
+.alert {
+  @extend %-alert;
+
+  &-fade {
+    @extend %-alert-fade;
+  }
+}
+
+// region    -- Predefined components
+.no-elements {
+  @extend %-alert, %-alert-fade, %font-size-smaller;
+  text-align: center;
+}
+// endregion -- Predefined components
