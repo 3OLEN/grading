@@ -35,11 +35,35 @@ export class ModuleListComponent {
             id: 0,
             name: 'Projet 31',
             promotion: '3OLEN',
-            assessments: [],
-            sessions: [],
+            assessments: [
+                {
+                    id: 0,
+                    label: 'Version 1',
+                    date: new Date(2024, 1, 9),
+                    type: 'rendu',
+                },
+                {
+                    id: 0,
+                    label: 'Soutenance finale',
+                    date: new Date(2024, 2, 26),
+                    type: 'soutenance',
+                },
+            ],
+            sessions: [
+                {
+                    label: 'Vendredi 9 février',
+                    type: 'cours',
+                    date: new Date(2024, 1, 9),
+                },
+                {
+                    label: 'Mardi 26 mars',
+                    type: 'soutenance',
+                    date: new Date(2024, 2, 26),
+                },
+            ],
             nextSession: {
                 label: 'Vendredi 9 février',
-                type: 'course',
+                type: 'cours',
                 date: new Date(2024, 1, 9),
             },
         },

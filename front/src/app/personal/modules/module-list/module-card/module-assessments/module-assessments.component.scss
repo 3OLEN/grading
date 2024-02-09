@@ -1,0 +1,11 @@
+.mat-column-assessment-date {
+  width: 6em;
+}
+
+.mat-column-actions {
+  width: 9.5em;
+
+  &.mat-mdc-header-cell {
+    text-align: center;
+  }
+}
