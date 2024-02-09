@@ -1,11 +1,9 @@
 @import "styles";
 
-:host {
-  header {
-    @include border-bottom;
-    @extend %font-size-bigger;
-    padding-right: 3em;
-    padding-bottom: .5em;
-    width: fit-content;
-  }
+header {
+  @include border-bottom;
+  @extend %font-size-bigger;
+  padding-right: 3em;
+  padding-bottom: .5em;
+  width: fit-content;
 }
