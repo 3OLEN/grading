@@ -2,7 +2,13 @@
     <section id="copyright">
         <main>
             <div>
-                <a href="https://ort-france.fr/lyon" target="_blank" title="Site Centre de Formation ORT LYON">
+                <a
+                    href="https://ort-france.fr/lyon"
+                    target="_blank"
+                    matTooltip="Site Centre de Formation ORT LYON"
+                    [matTooltipPosition]="'right'"
+                    aria-label="Logo avec un lien externe vers le site du centre de formation ORT LYON."
+                >
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" height="70px" viewBox="0 0 367.48 233.99">
                         <path style="fill:#001489;" d="M72.14,10.41v26.98c19.39,0,35.12,15.73,35.12,35.12c0,19.39-15.73,35.11-35.12,35.11v26.98 c34.3,0,62.1-27.8,62.1-62.1C134.25,38.21,106.44,10.41,72.14,10.41"></path>
                         <polygon style="fill:#001489;" points="266.72,12.57 266.72,38.96 299.37,38.96 299.37,132.52 326.79,132.52 326.79,38.96 359.44,38.96 359.44,12.57"></polygon>
@@ -25,7 +31,13 @@
         <header>Liens utiles</header>
         <main>
             <nav>
-                <a [routerLink]="['/']" title="Page d'accueil">Accueil</a>
+                <a
+                    [routerLink]="['/']"
+                    matTooltip="Page d'accueil"
+                    aria-label="Accès à la page d'accueil"
+                >
+                    Accueil
+                </a>
             </nav>
         </main>
     </section>
@@ -33,7 +45,12 @@
     <section id="contributions">
         <main>
             <div>
-                <a href="https://github.com/3OLEN/grading" target="_blank" title="Projet GitHub">
+                <a
+                    href="https://github.com/3OLEN/grading"
+                    target="_blank"
+                    matTooltip="Projet GitHub"
+                    aria-label="Icône GitHub avec un lien externe vers le projet GitHub."
+                >
                     <ng-icon name="faBrandGithub" color="black" size="2em"></ng-icon>
                 </a>
             </div>
@@ -43,7 +60,14 @@
         </main>
         <footer>
             Fait avec 🖖🏻 par
-            <a href="https://github.com/Edhrendal" target="_blank" title="Profil GitHub">Edhrendal</a>.
+            <a
+                href="https://github.com/Edhrendal"
+                target="_blank"
+                matTooltip="Profil GitHub"
+                aria-label="Lien externe vers l'auteur du projet."
+            >
+                Edhrendal
+            </a>.
         </footer>
     </section>
 </footer>

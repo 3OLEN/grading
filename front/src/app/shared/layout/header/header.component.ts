@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { MatIconButton } from '@angular/material/button'
 import { MatIcon } from '@angular/material/icon'
+import { MatTooltip } from '@angular/material/tooltip'
 import { RouterLink } from '@angular/router'
 
 @Component({
@@ -8,6 +9,7 @@ import { RouterLink } from '@angular/router'
         MatIconButton,
         MatIcon,
         RouterLink,
+        MatTooltip,
     ],
     selector: 'layout-header',
     standalone: true,

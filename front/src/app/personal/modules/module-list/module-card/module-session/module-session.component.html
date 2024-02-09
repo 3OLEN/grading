@@ -1,4 +1,7 @@
-<mat-chip class="session-{{ session.type }}" title="{{ session.type | titlecase }}">
+<mat-chip
+    class="session-{{ session.type }}"
+    matTooltip="{{ session.type | titlecase }}"
+>
     <div class="session-text">
         <div class="session-day">{{ session.date | date: "E" }}</div>
         <div class="session-date">{{ session.date | date: "dd/MM" }}</div>

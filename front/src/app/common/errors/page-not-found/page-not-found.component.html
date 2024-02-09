@@ -6,7 +6,13 @@
     </mat-card-content>
 
     <mat-card-actions>
-        <a [routerLink]="['/']" mat-raised-button color="warn" title="Retourner à la page d'accueil.">
+        <a
+            [routerLink]="['/']"
+            mat-raised-button
+            color="warn"
+            matTooltip="Retourner à la page d'accueil"
+            aria-label="Accès permettant de retourner à la page d'accueil"
+        >
             Retour à l'accueil
         </a>
     </mat-card-actions>
