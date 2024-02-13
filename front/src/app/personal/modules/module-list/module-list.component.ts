@@ -1,8 +1,11 @@
 import { NgForOf } from '@angular/common'
-import { Component } from '@angular/core'
+import { Component, type OnInit } from '@angular/core'
 import { MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle } from '@angular/material/expansion'
 import { MatIcon } from '@angular/material/icon'
+import { NgxMasonryModule, type NgxMasonryOptions } from 'ngx-masonry'
 import { PageHeadingComponent } from '../../../shared/templates/main/page-heading/page-heading.component'
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports --- Required for DI
+import { ModulesDataProvider } from '../../services/data-providers/modules.data-provider'
 import { type ModuleCard } from '../models/module-card'
 import { ModuleCardComponent } from './module-card/module-card.component'
 
@@ -15,78 +18,41 @@ import { ModuleCardComponent } from './module-card/module-card.component'
         MatExpansionPanelHeader,
         NgForOf,
         ModuleCardComponent,
+        NgxMasonryModule,
     ],
     selector: 'app-personal-modules-list',
     standalone: true,
     styleUrl: './module-list.component.scss',
     templateUrl: './module-list.component.html',
 })
-export class ModuleListComponent {
-    /* eslint-disable canonical/sort-keys --- Same sort as type */
-    public modules: ModuleCard[] = [
-        {
-            id: 0,
-            name: 'Architecture application web, Git, qualité application',
-            promotion: '3OLEN',
-            assessments: [],
-            sessions: [],
-        },
-        {
-            id: 0,
-            name: 'Projet 31',
-            promotion: '3OLEN',
-            assessments: [
-                {
-                    id: 0,
-                    label: 'Version 1',
-                    date: new Date(2024, 1, 9),
-                    type: 'rendu',
-                },
-                {
-                    id: 0,
-                    label: 'Soutenance finale',
-                    date: new Date(2024, 2, 26),
-                    type: 'soutenance',
-                },
-            ],
-            sessions: [
-                {
-                    label: 'Vendredi 9 février',
-                    type: 'cours',
-                    date: new Date(2024, 1, 9),
-                },
-                {
-                    label: 'Mardi 26 mars',
-                    type: 'soutenance',
-                    date: new Date(2024, 2, 26),
-                },
-            ],
-            nextSession: {
-                label: 'Vendredi 9 février',
-                type: 'cours',
-                date: new Date(2024, 1, 9),
-            },
-        },
-        {
-            id: 0,
-            name: 'Projet 32',
-            promotion: '3OLEN',
-            assessments: [],
-            sessions: [],
-            nextSession: null,
-        },
-        {
-            id: 0,
-            name: 'Framework Symfony',
-            promotion: '3OLEN',
-            assessments: [],
-            sessions: [],
-            nextSession: null,
-        },
-    ]
-    /* eslint-enable canonical/sort-keys */
+export class ModuleListComponent implements OnInit {
+    public modules!: ModuleCard[]
+
+    public readonly masonryOptions: NgxMasonryOptions = {
+        fitWidth: true,
+        gutter: 15,
+    }
+
+    public constructor(
+        private personalModulesDataProvider: ModulesDataProvider,
+    ) {
+    }
+
+    public ngOnInit() {
+        this.provideModules()
+    }
 
     public ngForModuleTrackBy(index: number, module: ModuleCard): number {
         return module.id
+    }
+
+    private provideModules(): this {
+        this.personalModulesDataProvider
+            .getCurrentModules()
+            .subscribe(currentModuleList => {
+                this.modules = currentModuleList
+            })
+
+        return this
     }
 }

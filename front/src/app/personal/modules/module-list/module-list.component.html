@@ -12,10 +12,12 @@
 </section>
 
 <section id="module-list">
-    <ng-template ngFor let-module [ngForOf]="modules" [ngForTrackBy]="ngForModuleTrackBy">
-        <article>
-            <app-personal-modules-list-card [module]="module">
-            </app-personal-modules-list-card>
-        </article>
-    </ng-template>
+    <ngx-masonry [options]="masonryOptions">
+        <ng-template ngFor let-module [ngForOf]="modules" [ngForTrackBy]="ngForModuleTrackBy">
+            <article ngxMasonryItem>
+                <app-personal-modules-list-card [module]="module">
+                </app-personal-modules-list-card>
+            </article>
+        </ng-template>
+    </ngx-masonry>
 </section>

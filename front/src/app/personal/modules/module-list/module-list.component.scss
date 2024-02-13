@@ -9,10 +9,9 @@
 #module-list {
   display: flex;
     justify-content: center;
-    gap: $spacing-base * .5;
-    flex-wrap: wrap;
 
-  > article {
-    width: 600px;
+  [ngxMasonryItem] {
+    margin-bottom: 15px;
+    width: 540px;
   }
 }
